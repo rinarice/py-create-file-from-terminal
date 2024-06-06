@@ -54,7 +54,10 @@ def main() -> None:
         dir_index = args.index("-d")
         file_index = args.index("-f")
         file_name = args[file_index + 1]
-        path_parts = args[dir_index + 1:file_index]
+        if dir_index < file_index:
+            path_parts = args[dir_index + 1:file_index]
+        else:
+            path_parts = args[dir_index + 1:]
     elif "-d" in args:
         dir_index = args.index("-d")
         path_parts = args[dir_index + 1:]
